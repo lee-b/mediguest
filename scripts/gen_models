@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Run this to create and display a graph of the MediGuest internal data model
+#
+
+OUTFILE=tempdata/models.png
+
+echo -n "Rendering to $OUTFILE..."
+./manage.py graph_models -a -o "$OUTFILE"
+echo -n "Done. Opening..."
+xdg-open "$OUTFILE"
+echo "Finished."
+

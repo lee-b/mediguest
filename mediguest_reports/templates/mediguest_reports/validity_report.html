@@ -1,0 +1,31 @@
+{% extends "admin/base_site.html" %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="/static/mediguest_reports/styles/all.css" />
+{% endblock %}
+
+{% block title %}{{ org_name }} - Validity Report{% endblock %}
+
+{% block content %}
+	<h2>System Validity Report</h2>
+
+    <table class="validity-report">
+        <thead>
+            <tr>
+                <th class="testname">Test</th>
+                <th class="result">Result</th>
+                <th class="notes">Notes</th>
+            </tr>
+        </thead>
+
+    	{% for res in validity_results %}
+            <tr class="validity-result{% if res.valid %} valid{% else %} invalid{% endif %}">
+                <th>{{ res.name }}</th>
+                <td class="result">{{ res.result }}</td>
+                <td>{{ res.notes }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+

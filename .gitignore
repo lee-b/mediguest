@@ -1,0 +1,11 @@
+.project
+.pydevproject
+local_settings.py
+.settings
+.kdev4
+Notes.txt
+nbproject
+*.pyo
+*.pyc
+__pycache__
+

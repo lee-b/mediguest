@@ -1,0 +1,52 @@
+<div class="document">
+
+<h2>Key Receipt Form</h2>
+
+<table>
+    <tr>
+        <th>Guest Name</th>
+        <td>{{ client }}</td>
+    </tr>
+    <tr>
+        <th>Room Number</th>
+        <td>{{ client.room }}</td>
+    </tr>
+    <tr>
+        <th>Licence Start Date</th>
+        <td>{{ client.latest_booking.start_date|date:"Y/M/d" }}</td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<ul class="checkboxes">
+	<li>I have paid my deposit of &pound;{{ deposit|floatformat:2 }} which
+	will be reimbursed on return of my key at the end of my licence</li>
+
+	<li>I agree that I will pay for any replacements should my key be
+	mislaid</li>
+
+	<li>I will return all keys to {{ org_name }} when my licence has
+	ended</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<table>
+    <tr>
+        <th>Guest's Signature</th>
+        <td class="signature_box">&nbsp;</td>
+
+        <th>Date</th>
+        <td class="signature_box">&nbsp;</td>
+    </tr>
+    <tr>
+        <th>Support Worker's signature</th>
+        <td class="signature_box">&nbsp;</td>
+
+        <th>Date</th>
+        <td class="signature_box">&nbsp;</td>
+    </tr>
+</table>
+
+</div>

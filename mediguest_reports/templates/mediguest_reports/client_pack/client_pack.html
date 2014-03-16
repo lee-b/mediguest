@@ -1,0 +1,16 @@
+{% extends "base_report.html" %}
+
+{% block content %}
+	{% include "mediguest_reports/required_static/A - Licence Agreement - Part A.html" %}
+
+    <div class="page-break"></div>
+
+    {% include "mediguest_reports/client_pack_dynamic_parts.html" %}
+
+    {% include "mediguest_reports/localised/uk/monitoring_forms/monitoring_form.html" %}
+{% endblock %}
+
+{% block footer %}
+    {% include "mediguest_reports/client_pack_footer.html" %}
+{% endblock %}
+

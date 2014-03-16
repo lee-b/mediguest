@@ -1,0 +1,62 @@
+{% extends "letter.html" %}
+
+{% block title %}Fresh Claim / Change of Address Letter{% endblock %}
+
+{% block to_address %}
+	Housing Benefit Organisation<br>
+	Some City
+	Some Postcode
+	Some Country
+{% endblock %}
+
+{% block content %}
+	<p>This letter is to introduce the person below as a guest at
+	{{ org_name }}.  Please confirm a fresh claim by completing the attached
+	slip, and returning it to the claimant.</p>
+
+	<table>
+	    <tr>
+            <th>Name</th>
+            <th>Booking-in date</th>
+            <th>Date of Birth</th>
+            <th>National Insurance No.</th>
+        </tr>
+
+	    <tr>
+    	    <td>{{ client }}</td>
+
+    	    <td>
+                {% if client.room %}
+                    {{ client.booking_set.latest.start_date.date|date:"Y/M/d" }}
+                {% else %}
+                    (tbd)
+                {% endif %}
+            </td>
+
+	        <td>{{ client.date_of_birth|date:"Y/M/d" }}</td>
+	        <td>{{ client.national_insurance_no }}</td>
+        </tr>
+	</table>
+{% endblock %}
+
+{% block signee_details %}Hostel Support Worker{% endblock %}
+
+{% block postscript %}
+	<p>FOR CLAIMS OFFICE USE ONLY</p>
+
+	<p>I confirm that:<p>
+
+    <p>has made a fresh Claim / Change of address
+    from:</p>
+
+	<p>at (office address):</p>
+
+	<p>Name of Official</p>
+
+	<p>Signature</p>
+
+	<p>Date</p>
+
+	<p>Office Stamp:</p>
+{% endblock %}
+

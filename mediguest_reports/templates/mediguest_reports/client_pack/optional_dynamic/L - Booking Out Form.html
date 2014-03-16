@@ -1,0 +1,102 @@
+{% with last_booking=client.last_booking %}
+<div class="document">
+
+<h2>Booking-out Form</h2>
+
+<table class="bordered">
+    <tr>
+        <td colspan="2">
+			{{ org_name }}<br>
+            {{ org_address_inline }}
+		</td>
+        <td colspan="2">
+            <table>
+                <tr>
+                    <th>Tel:</th>
+					<td>{{ org_phone }}</td>
+                </tr>
+                <tr>
+                    <th>Fax:</th>
+					<td>{{ org_fax }}</td>
+                </tr>
+            </table>
+        </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table class="bordered">
+    <tr>
+        <th>Surname</th>
+        <th>Forename(s)</th>
+        <th>D.O.B.</th>
+        <th>N.I. Number</th>
+    </tr>
+    <tr>
+        <td>{{ client.surnames }}</td>
+        <td>{{ client.forenames }}</td>
+        <td>{{ client.date_of_birth }}</td>
+        <td>{{ client.national_insurance_no }}</td>
+    </tr>
+
+    <tr>
+        <th>Mobile Phone No.</th>
+        <th>Booking-in Date</th>
+        <th>Keyworker</th>
+        <th>Ref. Number</th>
+    </tr>
+    <tr>
+        <td>{{ client.mobile_phone_no }}</td>
+        <td>{{ last_booking.start_date }}</td>
+        <td>{{ client.keyworker }}</td>
+        <td>{{ client.id }}</td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table class="bordered">
+    <tr>
+        <th colspan="3">Accomodation Allocated</th>
+    </tr>
+    <tr>
+        <th>Crash Room</th>
+        <th>Bedroom</th>
+        <th>Apartment</th>
+    </tr>
+    <tr>
+        <td>
+            {% ifequal last_booking.room.type.code "C" %}
+                Y
+            {% endifequal %}
+        </td>
+        <td>
+            {% ifequal last_booking.room.type.code "R" %}
+                Y
+            {% endifequal %}
+        </td>
+        <td>
+            {% ifequal last_booking.room.type.code "A" %}
+                Y
+            {% endifequal %}
+        </td>
+    </tr>
+    <tr>
+        <th>Room number</th>
+        <td colspan="2">{{ last_booking.room.number }}</td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table class="bordered">
+    <tr>
+        <th colspan="3">Reason for booking out</th>
+    </tr>
+    <tr>
+        <td colspan="3">{{ last_booking.reason_for_leaving }}</td>
+    </tr>
+</table>
+
+</div>
+{% endwith %}

@@ -1,0 +1,47 @@
+{% extends "base_report.html" %}
+
+{% block content %}
+	<h1>{{ org_name}}</h1>
+
+    <h2>Service Charge Payment Receipt</h2>
+
+    <table>
+        <tr>
+            <th>Receipt Number</th>
+            <td>{{ payment.id }}</td>
+        </tr>
+        <tr>
+            <th>Amount paid</th>
+            <td>&pound;{{ payment.amount|floatformat:2 }}</td>
+        </tr>
+        <tr>
+            <th>Date paid</th>
+            <td>{{ payment.date_paid }}</td>
+        </tr>
+        <tr>
+            <th>Service Type</th>
+            <td>{{ payment.service_charge.type }}</td>
+        </tr>
+        <tr>
+            <th>Date charged</th>
+            <td>{{ payment.service_charge.date_charged }}</td>
+        </tr>
+        <tr>
+            <th>Client</th>
+            <td>{{ payment.client }}</td>
+        </tr>
+        <tr>
+            <th>Related Booking</th>
+            <td>
+                {% if payment.service_charge.related_booking %}
+                    Room {{ payment.service_charge.related_booking.room }},
+                    {{ payment.service_charge.related_booking.start_date|date:"Y b m"|title }} --
+                    {{ payment.service_charge.related_booking.end_date|date:"Y b m"|title }}
+                {% else %}
+                    (none)
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+{% endblock %}
+

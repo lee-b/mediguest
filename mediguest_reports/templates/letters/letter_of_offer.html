@@ -1,0 +1,37 @@
+{% extends "letter.html" %}
+
+{% block title %}Letter of Offer{% endblock %}
+
+{% block salutation %}Dear {{ client }}{% endblock %}
+
+{% block content %}
+	<p>Following your application for accommodation at {{ org_name }}, I would
+	like to offer you accommodation.</p>
+
+	<table>
+	    <tr>
+            <th>Name</th>
+            <td>{{ client }}</td>
+        </tr>
+	    <tr>
+            <th>Room</th>
+            <td>{{ client.room }}</td>
+        </tr>
+	    <tr>
+            <th>Start</th>
+            <td>{{ client.last_booking.start_date.date|date:"Y/M/d" }}</td>
+        </tr>
+	    <tr>
+            <th>Keyworker</th>
+            <td>{{ client.keyworker }}</td>
+        </tr>
+	    <tr>
+            <th>Time and date of keyworker's next shift</th>
+            <td>{{ client.keyworker.next_shift }}</td>
+        </tr>
+	</table>
+{% endblock %}
+
+{% block sign_off %}Yours Sincerely{% endblock %}
+
+{% block signee_details %}{{ org_name }} Support Worker{% endblock %}

@@ -1,0 +1,70 @@
+<div class="document">
+
+<h2>Booking-in Form</h2>
+
+<p>
+{{ org_name }}<br>
+{{ org_address_inline }}
+</p>
+
+<table class="bordered">
+    <tr>
+        <th>Surname</th>
+        <th>Forename(s)</th>
+        <th>D.O.B.</th>
+        <th>National Insurance No.</th>
+    </tr>
+    <tr>
+        <td>{{ client.surnames }}</td>
+        <td>{{ client.forenames }}</td>
+        <td>{{ client.date_of_birth|date:"Y/M/d" }}</td>
+        <td>{{ client.national_insurance_no }}</td>
+    </tr>
+
+    <tr>
+        <th>Mobile Phone No.</th>
+        <th>Booking-in Date</th>
+        <th>Keyworker</th>
+        <th>Ref. Number</th>
+    </tr>
+
+    <tr>
+        <td>{{ client.mobile_phone_no }}</td>
+        <td>
+            {% if client.room %}
+                {{ client.booking_set.latest.start_date|date:"Y/M/d" }}
+            {% else %}
+                (no room yet)
+            {% endif %}
+        </td>
+        <td>{{ client.keyworker }}</td>
+        <td>{{ client.reference_no }}</td>
+    </tr>
+</table>
+
+<h3>Accomodation Allocated</h3>
+
+{% if client.room %}
+    <p>{{ client.room.type }}</p>
+{% else %}
+    (no booking yet)
+{% endif %}
+</table>
+
+<h3>Completing Booking-in</h3>
+
+<table>
+    <tr>
+        <th>Signed</th>
+        <th>Date</th>
+    </tr>
+    <tr>
+        <td class="signature_box">&nbsp;</td>
+        <td class="signature_box">&nbsp;</td>
+        <td class="signature_box">&nbsp;</td>
+    </tr>
+</table>
+
+<p>This is to confirm that the above licensee is a guest at {{ org_name }}</p>
+
+</div>

@@ -1,0 +1,55 @@
+<div class="letter">
+    <table class="letterhead">
+        <tr>
+            <td>
+                <img src="/static/mediguest_reports/images/logo_for_letterhead.png"
+                    alt=""
+                >
+            </td>
+            <td>
+	            <div class="from_address">
+		            {% block from_address %}
+			            {{ org_name }}<br>
+			            {{ org_address_html|safe }}
+		            {% endblock %}
+
+		            <table class="contact-methods">
+						<tr><th>Tel:</th>       <td>{{org_phone}}</td></tr>
+						<tr><th>Fax:</th>       <td>{{org_fax}}</td></tr>
+		            </table>
+	            </div>
+            </td>
+    </table>
+
+	<div class="to_address">
+	    {% block to_address %}
+	    {% endblock %}
+	</div>
+
+
+	<h2>{% block title %}{% endblock %}</h2>
+
+
+	<div class="letter_date">{% block date %}{% now "D, d M Y" %}{% endblock %}</div>
+
+	<div class="salutation">{% block salutation %}Dear Sir/Madam{% endblock %},</div>
+	
+	<div class="content">
+	    {% block content %}
+	    {% endblock %}
+	</div>
+	
+	<p class="sign-off">{% block sign_off %}Yours faithfully{% endblock %},</p>
+	
+	<p class="signature">
+	    {% block signature %}
+	    {% endblock %}
+	</p>
+	
+	<p class="signee_details">
+	    {% block signee_details %}
+	    {% endblock %}
+	</p>
+
+    <div class="postscript">{% block postscript %}{% endblock %}</div>
+</div>

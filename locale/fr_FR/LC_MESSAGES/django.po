@@ -1,0 +1,505 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-25 21:21+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: clients/templates/clients/add.html:4
+msgid "Client - Add"
+msgstr ""
+
+#: clients/templates/clients/add.html:7
+msgid "Add Client"
+msgstr ""
+
+#: clients/templates/clients/add.html:16
+msgid "Add"
+msgstr ""
+
+#: clients/templates/clients/delete.html:4
+#: clients/templates/clients/view.html:4
+#, python-format
+msgid "Client %(client)s"
+msgstr ""
+
+#: clients/templates/clients/delete.html:7
+#, python-format
+msgid "%(client_name)s deleted"
+msgstr ""
+
+#: clients/templates/clients/delete.html:9
+#: clients/templates/clients/view.html:14
+msgid "Return to Client List"
+msgstr ""
+
+#: clients/templates/clients/edit.html:4 clients/templates/clients/edit.html:7
+msgid "Edit Client"
+msgstr ""
+
+#: clients/templates/clients/edit.html:16
+msgid "Update and return"
+msgstr ""
+
+#: clients/templates/clients/index.html:4
+#: mediguest_welcome/templates/mediguest_welcome/index.html:4
+#: third-party/django-schedule/project_sample/templates/homepage.html:5
+msgid "Welcome"
+msgstr ""
+
+#: clients/templates/clients/index.html:7
+msgid "Client List"
+msgstr ""
+
+#: clients/templates/clients/index.html:15
+msgid "Add New Client"
+msgstr ""
+
+#: clients/templates/clients/view.html:11
+msgid "Edit"
+msgstr ""
+
+#: clients/templates/clients/view.html:12
+#: third-party/django-schedule/schedule/templates/schedule/cancel_occurrence.html:5
+#: third-party/django-schedule/schedule/templates/schedule/cancel_occurrence.html:12
+#: third-party/django-schedule/schedule/templates/schedule/delete_event.html:5
+#: third-party/django-schedule/schedule/templates/schedule/delete_event.html:10
+#: third-party/django-schedule/schedule/templates/schedule/event.html:31
+msgid "Delete"
+msgstr ""
+
+#: clients/templates/clients/view.html:13
+msgid "Client Pack"
+msgstr ""
+
+#: mediguest_welcome/templates/section_base.html:12
+msgid "Return to front page"
+msgstr ""
+
+#: mediguest_welcome/templates/mediguest_welcome/index.html:9
+msgid "Client Options"
+msgstr ""
+
+#: mediguest_welcome/templates/mediguest_welcome/index.html:12
+msgid "List Clients"
+msgstr ""
+
+#: mediguest_welcome/templates/mediguest_welcome/index.html:13
+msgid "Validity Report"
+msgstr ""
+
+#: third-party/django-schedule/project_sample/templates/404.html:5
+msgid "Not Found"
+msgstr ""
+
+#: third-party/django-schedule/project_sample/templates/404.html:8
+msgid "We're sorry but that page could not be found."
+msgstr ""
+
+#: third-party/django-schedule/project_sample/templates/500.html:5
+msgid "Server Error"
+msgstr ""
+
+#: third-party/django-schedule/project_sample/templates/500.html:8
+msgid ""
+"We're sorry but a server error has occurred. We've been notified and will "
+"look into it as soon as possible."
+msgstr ""
+
+#: third-party/django-schedule/project_sample/templates/base.html:31
+msgid "clear"
+msgstr ""
+
+#: third-party/django-schedule/project_sample/templates/homepage.html:10
+msgid ""
+"\n"
+"        <h1>django-schedule</h1>\n"
+"    "
+msgstr ""
+
+#: third-party/django-schedule/project_sample/templates/homepage.html:13
+msgid ""
+"\n"
+"    <p>This project is a scheduling app. At its core are events that "
+"constitute a start and end date implemented via two DateTimeFields together "
+"with a some meta datax such as title, description, etc.</p>\n"
+"    <p>To make it more user friendly there is the idea of EventRelation "
+"which links generic objects and an Event object.  The idea is that you will "
+"keep more information about the event in these relations such as who is "
+"authorized to view them. It could be the case that User is linked to Event "
+"to represent who is authorized to view the event, and also User is linked to "
+"event to represent who is attending the event.</p>\n"
+"    <p>The EventRelation has another field called distinction.  So in the "
+"previous example we could add an EventRelation which links a User to an "
+"Event with the distinction \"viewer\" and another EventRelation which links "
+"a User to an Event with the distinction \"attendee.\"</p>\n"
+"    "
+msgstr ""
+
+#: third-party/django-schedule/project_sample/templates/homepage.html:18
+msgid ""
+"\n"
+"        <h2>Want to see it in action?</h2>\n"
+"    "
+msgstr ""
+
+#: third-party/django-schedule/project_sample/templates/homepage.html:21
+msgid ""
+"\n"
+"        <p>The sample project come with two management commands that enable "
+"you to load some data:</p>\n"
+"        <p><code>./manage.py load_sample_data</code></p>\n"
+"        <p><code>./manage.py load_example_data</code></p>\n"
+"    "
+msgstr ""
+
+#: third-party/django-schedule/project_sample/templates/homepage.html:26
+msgid "The list of available Calendars."
+msgstr ""
+
+#: third-party/django-schedule/project_sample/templates/homepage.html:27
+msgid ""
+"\n"
+"        <h3>Project Owner</h3>\n"
+"        <ul>\n"
+"            <li>Tony Hauber</li>\n"
+"        </ul>\n"
+"        <h3>Contributors</h3>\n"
+"        <ul>\n"
+"            <li>Alex Gaynor</li>\n"
+"            <li>Bartek Górny</li>\n"
+"            <li>Rock Howard</li>\n"
+"            <li>Alik Kurdyukov</li>\n"
+"            <li>Jannis Leidel</li>\n"
+"            <li>Yann Malet</li>\n"
+"            <li>James Pic</li>\n"
+"            <li>Skylar Saveland</li>\n"
+"            <li>ptoal</li>\n"
+"            <li>Wes Winham</li>\n"
+"        </ul>\n"
+"    "
+msgstr ""
+
+#: third-party/django-schedule/schedule/forms.py:11
+#: third-party/django-schedule/schedule/forms.py:15
+msgid "The end time must be later than start time."
+msgstr ""
+
+#: third-party/django-schedule/schedule/forms.py:23
+#: third-party/django-schedule/schedule/models/events.py:33
+msgid "This date is ignored for one time only events."
+msgstr ""
+
+#: third-party/django-schedule/schedule/periods.py:275
+#: third-party/django-schedule/schedule/periods.py:299
+#: third-party/django-schedule/schedule/models/events.py:43
+msgid "DATE_FORMAT"
+msgstr ""
+
+#: third-party/django-schedule/schedule/periods.py:276
+#, python-format
+msgid "Week: %(start)s-%(end)s"
+msgstr ""
+
+#: third-party/django-schedule/schedule/periods.py:300
+#, python-format
+msgid "Day: %(start)s-%(end)s"
+msgstr ""
+
+#: third-party/django-schedule/schedule/conf/settings.py:8
+msgid "FIRST_DAY_OF_WEEK"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/calendars.py:135
+#: third-party/django-schedule/schedule/models/rules.py:41
+msgid "name"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/calendars.py:136
+msgid "slug"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/calendars.py:140
+#: third-party/django-schedule/schedule/models/calendars.py:141
+#: third-party/django-schedule/schedule/models/calendars.py:224
+msgid "calendar"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/calendars.py:228
+#: third-party/django-schedule/schedule/models/events.py:331
+msgid "distinction"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/calendars.py:229
+msgid "inheritable"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/calendars.py:234
+msgid "calendar relation"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/calendars.py:235
+msgid "calendar relations"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:26
+#: third-party/django-schedule/schedule/models/events.py:350
+msgid "start"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:27
+#: third-party/django-schedule/schedule/models/events.py:351
+msgid "end"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:27
+msgid "The end time must be later than the start time."
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:28
+#: third-party/django-schedule/schedule/models/events.py:348
+msgid "title"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:29
+#: third-party/django-schedule/schedule/models/events.py:349
+#: third-party/django-schedule/schedule/models/rules.py:42
+msgid "description"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:30
+msgid "creator"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:31
+msgid "created on"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:32
+#: third-party/django-schedule/schedule/models/rules.py:47
+msgid "rule"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:32
+msgid "Select '----' for a one time only event."
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:33
+msgid "end recurring period"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:38
+#: third-party/django-schedule/schedule/models/events.py:327
+#: third-party/django-schedule/schedule/models/events.py:347
+msgid "event"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:39
+msgid "events"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:44
+#, python-format
+msgid "%(title)s: %(start)s-%(end)s"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:336
+msgid "event relation"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:337
+msgid "event relations"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:352
+msgid "cancelled"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:353
+msgid "original start"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:354
+msgid "original end"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:357
+msgid "occurrence"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:358
+msgid "occurrences"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/events.py:429
+#, python-format
+msgid "%(start)s to %(end)s"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/rules.py:4
+msgid "Yearly"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/rules.py:5
+msgid "Monthly"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/rules.py:6
+msgid "Weekly"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/rules.py:7
+msgid "Daily"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/rules.py:8
+msgid "Hourly"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/rules.py:9
+msgid "Minutely"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/rules.py:10
+msgid "Secondly"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/rules.py:43
+msgid "frequency"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/rules.py:44
+msgid "params"
+msgstr ""
+
+#: third-party/django-schedule/schedule/models/rules.py:48
+msgid "rules"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:4
+msgid "Schedule"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:12
+msgid "Start"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:13
+msgid "End"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:14
+msgid "Title"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:26
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:27
+msgid "Event details"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:30
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:31
+msgid "Edit event"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:33
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:34
+msgid "Delete event"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:45
+#, python-format
+msgid "You haven't added any <a href=\"%(add_event_url)s\">event</a> yet."
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/profiles/schedule.html:49
+msgid "Add event"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/_detail.html:7
+#: third-party/django-schedule/schedule/templates/schedule/_detail.html:11
+#: third-party/django-schedule/schedule/templates/schedule/_detail.html:21
+#: third-party/django-schedule/schedule/templates/schedule/cancel_occurrence.html:10
+#: third-party/django-schedule/schedule/templates/schedule/cancel_occurrence.html:11
+#: third-party/django-schedule/schedule/templates/schedule/event.html:38
+#: third-party/django-schedule/schedule/templates/schedule/event.html:42
+#: third-party/django-schedule/schedule/templates/schedule/event.html:47
+#: third-party/django-schedule/schedule/templates/schedule/occurrence.html:25
+#: third-party/django-schedule/schedule/templates/schedule/occurrence.html:29
+msgid "DATETIME_FORMAT"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/_detail.html:7
+#: third-party/django-schedule/schedule/templates/schedule/event.html:38
+#: third-party/django-schedule/schedule/templates/schedule/occurrence.html:25
+#, python-format
+msgid "%(start_date)s"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/_detail.html:11
+#: third-party/django-schedule/schedule/templates/schedule/_detail.html:21
+#: third-party/django-schedule/schedule/templates/schedule/event.html:42
+#: third-party/django-schedule/schedule/templates/schedule/occurrence.html:29
+#, python-format
+msgid "%(end_date)s"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/cancel_occurrence.html:6
+msgid "Are you sure that you really want to cancel this occurrence?"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/cancel_occurrence.html:13
+#: third-party/django-schedule/schedule/templates/schedule/create_event.html:13
+#: third-party/django-schedule/schedule/templates/schedule/delete_event.html:11
+#: third-party/django-schedule/schedule/templates/schedule/edit_occurrence.html:13
+#: third-party/django-schedule/schedule/templates/schedule/occurrence.html:19
+msgid "Cancel"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/create_event.html:5
+msgid "Create or change event. All fields are required."
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/create_event.html:12
+#: third-party/django-schedule/schedule/templates/schedule/edit_occurrence.html:12
+msgid "Save"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/delete_event.html:6
+msgid "Are you sure that you really want to delete it?"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/edit_occurrence.html:5
+msgid "Create or change occurrence. All fields are required."
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/event.html:22
+#: third-party/django-schedule/schedule/templates/schedule/occurrence.html:16
+msgid "Back"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/event.html:27
+#: third-party/django-schedule/schedule/templates/schedule/occurrence.html:18
+msgid "Change"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/event.html:47
+#, python-format
+msgid "%(end_recurring_date)s"
+msgstr ""
+
+#: third-party/django-schedule/schedule/templates/schedule/event.html:49
+msgid "Never. This is a 'one time only' event."
+msgstr ""

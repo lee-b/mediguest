@@ -1,0 +1,11 @@
+[
+{"pk": 1, "model": "booking.roomtype", "fields": {"daily_rate": "5.00000", "code": "R", "name": "Standard Room", "is_client_room": true}},
+{"pk": 3, "model": "booking.roomtype", "fields": {"daily_rate": "6.00000", "code": "C", "name": "Crash bed", "is_client_room": true}},
+{"pk": 4, "model": "booking.roomtype", "fields": {"daily_rate": "1.00000", "code": "A", "name": "Apartment", "is_client_room": true}},
+{"pk": 5, "model": "booking.roomtype", "fields": {"daily_rate": "0.00000", "code": "S", "name": "Storage Room", "is_client_room": false}},
+{"pk": 1, "model": "booking.room", "fields": {"type": 1, "number": 1, "keyworker": 1}},
+{"pk": 2, "model": "booking.room", "fields": {"type": 2, "number": 2, "keyworker": 1}},
+{"pk": 3, "model": "booking.room", "fields": {"type": 3, "number": 3, "keyworker": 1}},
+{"pk": 4, "model": "booking.room", "fields": {"type": 4, "number": 4, "keyworker": 1}},
+{"pk": 5, "model": "booking.room", "fields": {"type": 5, "number": 5, "keyworker": 1}},
+]

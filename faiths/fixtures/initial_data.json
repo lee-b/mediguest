@@ -1,0 +1,9 @@
+[
+{"pk": 1, "model": "faiths.religion", "fields": {"name": "None"}},
+{"pk": 2, "model": "faiths.religion", "fields": {"name": "Other"}},
+{"pk": 3, "model": "faiths.religion", "fields": {"name": "Christian - Roman Catholic"}},
+{"pk": 4, "model": "faiths.religion", "fields": {"name": "Christian - Protestant"}},
+{"pk": 5, "model": "faiths.religion", "fields": {"name": "Muslim"}},
+{"pk": 6, "model": "faiths.religion", "fields": {"name": "Buddhist"}},
+{"pk": 7, "model": "faiths.religion", "fields": {"name": "Hindu"}}
+]

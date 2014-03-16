@@ -1,0 +1,27 @@
+<html>
+	<head>
+	{% block head %}
+	    <link rel="stylesheet" type="text/css" media="all" href="/static/mediguest_reports/styles/all.css">
+	    <link rel="stylesheet" type="text/css" media="print" href="/static/mediguest_reports/styles/print.css">
+	{% endblock %}
+	</head>
+
+	<body>
+	{% block body %}
+		<div id="header">
+		    {% block header %}
+		    {% endblock %}
+		</div>
+	
+		<div class="content">
+		    {% block content %}
+		    {% endblock %}
+		</div>
+
+		<div id="footer">
+			{% block footer %}
+			{% endblock %}
+		</div>
+	{% endblock %}
+	</body>
+</html>

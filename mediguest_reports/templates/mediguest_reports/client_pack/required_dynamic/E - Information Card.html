@@ -1,0 +1,214 @@
+<div class="document information-card">
+	<h2>Information Card</h2>
+
+	<table class="bordered information-card">
+	    <tr>
+            <th>Surname(s)</th>
+            <td colspan="2">{{ client.surnames }}</td>
+        </tr>
+	    <tr>
+            <th>Forename(s)</th>
+            <td colspan="2">{{ client.forenames }}</td>
+        </tr>
+	    <tr>
+            <th>Date of Birth</th>
+            <td colspan="2">{{ client.date_of_birth|date:"Y/M/d" }}</td>
+        </tr>
+	    <tr>
+            <th>National Insurance No.</th>
+            <td colspan="2">{{ client.national_insurance_no }}</td>
+        </tr>
+
+	    <tr>
+            <th>Room No.</th>
+            <td colspan="2">
+                {% if client.room %}
+                    {{ client.booking_set.latest.start_date }}
+                {% else %}
+                    (no current bookings)
+                {% endif %}
+            </td>
+        </tr>
+	    <tr>
+            <th>Date moved in</th>
+            <td colspan="2">{{ client.room.start_date|date:"Y/M/d" }}</td>
+        </tr>
+	    <tr>
+            <th>Date moved out</th>
+            <td colspan="2">
+                {% if client.room %}
+                    {{ client.booking_set.latest.end_date|date:"Y/M/d" }}
+                {% else %}
+                    (continued resident)
+                {% endif %}
+            </td>
+        </tr>
+	    <tr>
+            <th>Keyworker</th>
+            <td colspan="2">{{ client.keyworker }}</td>
+        </tr>
+
+	    <tr>
+	    	<th>Contact NOK in Emergency?</th>
+	    	<td colspan="2">
+	    		{% ifnotequal client.contact_next_of_kin Null %}
+	    			{% if client.contact_next_of_kin %}
+		    			Yes
+		    		{% else %}
+		    			No
+		    		{% endif %}
+		    	{% else %}
+		    		(unknown)
+		    	{% endifnotequal %}
+		    </td>
+		</tr>
+
+	    <tr>
+	        <th>Contact with other agencies / organisations</th>
+	        <td colspan="2">
+	            <table class="subtable">
+                    <tr>
+                        <th>Agency</th>
+                        <th>Contact Person</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Current?</th>
+                    </tr>
+                    {% for ac in client.agencycontact_set.all %}
+                        <tr>
+                            <td>{{ ac.agency_rep.organization }}</td>
+                            <td>{{ ac.agency_rep.member }}</td>
+                            <td>{{ ac.agency_rep.organization.address.address_inline }}</td>
+                            <td>{{ ac.agency_rep.member.mobile_phone_no }}</td>
+                            <td>
+                                {% if ac.follow_up_required %}
+                                    Y
+                                {% else %}
+                                    N
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5">
+                                (no agency contacts yet)
+                            </td>
+                        </tr>
+                    {% endfor %}
+	            </table>
+	        </td>
+	    </tr>
+
+	    <tr>
+	    	<th>Presented as Homeless?</th>
+	    	<td colspan="2">
+	    		{% ifnotequal client.presented_as_homeless Null %}
+		    		{% if client.presented_as_homeless %}
+		    			Yes
+		    		{% else %}
+		    			No
+		    		{% endif %}
+		    	{% else %}
+		    		(unknown)
+		    	{% endifnotequal %}
+	    	</td>
+	    </tr>
+
+	    <tr>
+	        <th>Health History</th>
+	        <td colspan="2">
+	            <table>
+	                <tr>
+	                    <th colspan="4">Hospital Admissions</th>
+	                </tr>
+                    <tr>
+                            <th>Admission date</th>
+                            <th>Hospital</th>
+		                    <th>Reason</th>
+		                    <th>Length of Stay</th>
+                    </tr>
+	                {% for adm in client.hospitaladmission_set.all %}
+		                <tr>
+                            <td>{{ adm.admission_date|date:"Y/M/d" }}</td>
+                            <td>{{ adm.hospital.name }}</td>
+		                    <td>{{ adm.reason }}</td>
+		                    <td>
+		                    	{% if adm.checkout_date %}
+			                    	{{ adm.pretty_duration }}
+		                    	{% else %}
+		                    		(ongoing)
+		                    	{% endif %}
+		                    </td>
+		                </tr>
+		            {% endfor %}
+	            </table>
+	        </td>
+	    </tr>
+
+	    <tr>
+	        <th>Current Medical Problems</th>
+	        <td colspan="2">
+                {% if client.medical_problems %}
+                    {{ client.medical_problems }}
+                {% else %}
+                    n/a
+                {% endif %}
+            </td>
+	    </tr>
+
+	    <tr>
+	        <th>Mobility Problems</th>
+	        <td colspan="2">
+                {% if client.mobility_problems %}
+                    {{ client.mobility_problems }}
+                {% else %}
+                    n/a
+                {% endif %}
+            </td>
+	    </tr>
+
+	    <tr>
+	        <th>Prescribed Medication</th>
+	        <td colspan="2">
+	            <table>
+	                <tr>
+	                    <th>Medication</th>
+	                    <th>Dosage</th>
+	                    <th>Frequency</th>
+	                    <th>What for</th>
+	                    <th>Time using</th>
+	                </tr>
+                    {% for med in client.current_medications %}
+                        <tr>
+                            <td>{{ med.drug.name }}</td>
+                            <td>{{ med.dose }} {{ med.drug.units }}</td>
+                            <td>{{ med.frequency }}</td>
+                            <td>{{ med.purpose }}</td>
+                            <td>{{ med.using_time_as_str }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5">
+                                (no current medications on record)
+                            </td>
+                        </tr>
+                    {% endfor %}
+	            </table>
+	        </td>
+	    </tr>
+
+	    <tr>
+	    	<th>Registered Disabled?</th>
+	    	<td colspan="2">{% if client.disabled_reg_no %}Yes{% else %}No{% endif %}</td>
+	    </tr>
+        <tr>
+            <th>Disabled Number</th>
+            <td colspan="2">{{ client.disabled_reg_no }}</td>
+        </tr>
+
+	    <tr>
+	    	<th>Assistance/Support Required</th>
+	    	<td colspan="2">{{ client.assistance_required }}</td>
+	    </tr>
+	</table>
+</div>

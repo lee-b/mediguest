@@ -1,0 +1,22 @@
+<div class="document">
+    <h2>Room Inventory</h2>
+
+    <table class="bordered">
+        <tr>
+            <td>Item</td>
+     	    <td>Condition**</td>
+        	    <td>Fault</td>
+        	    <td>Comments</td>
+    	</tr>
+
+		{% for item in client.room.inventoryitem_set.all %}
+       	<tr>
+			<td>{{ item.identifier }}</td>
+           	<td>{{ item.condition }}</td>
+           	<td>{{ item.fault }}</td>
+           	<td>{{ item.comments }}</td>
+       	</tr>
+        {% endfor %}
+    </table>
+</div>
+
