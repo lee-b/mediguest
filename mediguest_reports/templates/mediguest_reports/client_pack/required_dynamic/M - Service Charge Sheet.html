@@ -1,0 +1,40 @@
+<div class="document">
+
+<h2>Service Charge Balance Sheet</h2>
+
+<table class="bordered">
+    <tr>
+        <th>Guest Name:</th>            <td>{{ client }}</td>
+        <th>Room No:</th>               <td>{% if client.room %}{{ client.room }}{% else %}(no room){% endif %}</td>
+        <th>Booking-in Date:</th>
+        <td>
+            {% if client.room %}
+                {{ client.booking_set.latest.start_date|date:"Y/M/d" }}
+            {% else %}
+                (no room yet)
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <th>Date</th>
+        <th>Receipt Number(s)</th>
+        <th>Amount Paid</th>
+        <th>Date paid up to and including night of</th>
+        <th>SSW Name</th>
+    </tr>
+    {% for sc in client.service_charges.all %}
+	    <tr>
+	        <td>{{ sc.date_charged.date|date:"Y/M/d" }}</td>
+	        <td>{% for payment in  sc.payments.all %}
+                    {% if not forloop.first %}<br>{% endif %}
+                    {{ payment.id }}
+                {% endfor %}
+            </td>
+            <td>{{ sc.amount|floatformat:2 }}</td>
+	        <td>{{ sc.last_payment_date|date:"Y/M/d" }}</td>
+	        <td>{{ sc.authorizing_ssw }}</td>
+	    </tr>
+    {% endfor %}
+</table>
+
+</div>

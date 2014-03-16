@@ -1,0 +1,34 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+{% block object-tools %}
+    {% if change %}
+        {% if not is_popup %}
+            <div class="object-notices">
+                {% for n in original.object_notices %}
+                    <div class="object-notice">{{ n|safe }}</div>
+                {% endfor %}
+            </div>
+
+            <ul class="object-tools">
+                {% block object-tools-items %}
+                    <li><a href="history/" class="historylink">{% trans "History" %}</a></li>
+                    {% if change %}
+                        <li>
+                            <a href="/mediguest_client_reports/client/{{ object_id }}/pack"
+                                class="clientpacklink">
+                                {% trans "Client Pack" %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/mediguest_client_reports/client/{{ object_id }}/pack_dynonly"
+                                    class="clientpacklink">
+                                    {% trans "Pack Changes" %}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endblock %}
+            </ul>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+

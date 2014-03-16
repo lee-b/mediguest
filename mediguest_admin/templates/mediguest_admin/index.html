@@ -1,0 +1,44 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block content %}
+	<div class="admin-panel">
+		<div class="standard-panel">
+			<h2>{% trans "Clients" %}</h2>
+		
+			<ul>
+				<li><a href="clients/client">{% trans "View or change client details" %}</a></li>
+				<li><a href="clients/client/add">{% trans "Add new client" %}</a></li>
+			</ul>
+
+            <h2>{% trans "Other options" %}</h2>
+
+            <ul>
+                <li><a href="inventory/inventoryitem/">{% trans "Room Inventory" %}</a></li>
+                <li><a href="benefits/benefittype/">{% trans "Benefits" %}</a>
+                <li><a href="people/person/">{% trans "People" %}</a>
+		</div>
+
+		<div class="advanced-panel">
+			<h2>Reports</h2>
+
+			<ul>
+			    <li><a href="{% url validity_report %}">{% trans "Validity Report" %}</a></li>
+                <li>{% trans "Service Charge Control Sheets:" %}:
+                    <ul>
+                        <li><a href="{% url service_charge_week this_year %}">{% trans "This year" %} - {{ this_year }}</a></li>
+                        <li><a href="{% url service_charge_week last_year %}">{% trans "Last year" %} - {{ last_year }}</a></li>
+                    </ul>
+                </li>
+			</ul>
+		
+			<h2>{% trans "Advanced Options" %}</h2>
+		
+			<ul>
+				<li><a href="advanced_index">{% trans "Advanced Index" %}</a></li>
+			</ul>
+		</div>
+
+		<div class="post-admin-panel">&nbsp;</div>
+	</div>
+{% endblock %}

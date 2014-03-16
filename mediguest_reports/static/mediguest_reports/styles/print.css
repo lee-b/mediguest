@@ -1,0 +1,39 @@
+@page {
+	@frame header {
+		-pdf-frame-content: header;
+		top: 0.5cm;
+		margin-left: 1cm;
+		margin-right: 1cm;
+		height: 1cm;
+		text-align: left;
+	}
+
+	@frame middle {
+		top: 1.6cm;
+		bottom: 2cm;
+		margin-left: 1cm;
+		margin-right: 1cm;
+		font-size: 12pt;
+        padding-bottom: 0;
+	}
+
+	@frame footer {
+		-pdf-frame-content: footer;
+		bottom: 1cm;
+		margin-left: 1cm;
+		margin-right: 1cm;
+		height: 1cm;
+        font-style: italic;
+		text-align: center;
+        width: 100%;
+	}
+}
+
+h3, h4, h5, h6, h7 {
+  -pdf-outline: false;
+}
+
+.page-break {
+    page-break-before: always
+}
+

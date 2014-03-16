@@ -1,0 +1,53 @@
+{% extends "base_report.html" %}
+
+{% block content %}
+    <h1>Service Charge Control Sheet</h1>
+    <h2>{{ year }}, Week {{ week_num }}: {{ start|date:"b d"|title }} -- {{ end|date:"b d"|title }}</h2>
+
+    <table type="report">
+        <tr>
+            <th>Date</th>
+            <th>Room No.</th>
+            <th>Name of Guest</th>
+            <th>Paid in</th>
+            <th>Refund</th>
+            <th>Receipt No(s).</th>
+            <th>Balance</th>
+            <th class="comments">Comments</th>
+        </tr>
+        {% for sc in service_charges %}
+            <tr>
+                <td>{{ sc.date_charged|date:"Y/b/d"|title }}</td>
+                <td>{{ sc.client.latest_booking.room }}</td>
+                <td>{{ sc.client }}</td>
+                <td>
+                    {% if sc.amount_paid > 0.0 %}
+                        {{ sc.amount_paid|floatformat:2 }}
+                    {% else %}
+                        0.00
+                    {% endif %}
+                </td>
+                
+                <td>{% if sc.amount_paid < 0.00 %}
+                        {{ sc.amount_paid }}
+                    {% else %}
+                        0.00
+                    {% endif %}
+                </td>
+                <td>
+                    {% for payment in sc.payments.all %}
+                        {% if not forloop.first %},{% endif %}
+                        {{ payment.id }}
+                    {% endfor %}
+                </td>
+                <td>{{ sc.amount_outstanding|floatformat:2 }}</td>
+                <td>{{ sc.comments }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <th colspan="9">(no service charges recorded for this week)</th>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+

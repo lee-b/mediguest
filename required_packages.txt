@@ -1,0 +1,9 @@
+django==1.3
+db-sqlite3
+django_extensions
+south
+image
+PIL (pip install PIL  --allow-unverified PIL --allow-all-external)
+python-memcached
+python-pisa
+django-command-extensions

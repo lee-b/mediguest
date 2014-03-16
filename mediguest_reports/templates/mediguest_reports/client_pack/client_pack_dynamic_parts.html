@@ -1,0 +1,49 @@
+{% include "mediguest_reports/required_dynamic/B1 - Licence Agreement - Part B.html" %}
+<div class="page-break"></div>
+
+{% if client.booking_in %}
+	{% include "mediguest_reports/required_dynamic/B2 - Room Inventory.html" %}
+	<div class="page-break"></div>
+{% endif %}
+
+{% include "mediguest_reports/required_dynamic/C - Front of File.html" %}
+<div class="page-break"></div>
+
+{% include "mediguest_reports/required_dynamic/D - Emergency Sheet.html" %}
+<div class="page-break"></div>
+
+{% include "mediguest_reports/required_dynamic/E - Information Card.html" %}
+<div class="page-break"></div>
+
+{% if client.booking_in %}
+	{% include "mediguest_reports/localised/uk/letters/change_of_address_claim.html" %}
+	<div class="page-break"></div>
+
+	{% include "mediguest_reports/required_dynamic/G - Booking In Form.html" %}
+	<div class="page-break"></div>
+
+	{% if client.direct_to_crash_or_room %}
+	    {% include "mediguest_reports/optional_dynamic/H - Booking In Procedure - Direct to Crash or Room.html" %}
+	    <div class="page-break"></div>
+	{% endif %}
+
+	{% if client.crash_to_bed %}
+    		{% include "mediguest_reports/optional_dynamic/I - Booking In Procedure - Crash to Bed.html" %}
+    		<div class="page-break"></div>
+	{% endif %}
+
+	{% include "mediguest_reports/required_dynamic/J - Key Receipt Form.html" %}
+	<div class="page-break"></div>
+
+	{% include "mediguest_reports/letters/letter_of_offer.html" %}
+	<div class="page-break"></div>
+{% endif %}
+
+{% if client.booking_out %}
+    {% include "mediguest_reports/optional_dynamic/L - Booking Out Form.html" %}
+    <div class="page-break"></div>
+{% endif %}
+
+{% include "mediguest_reports/required_dynamic/M - Service Charge Sheet.html" %}
+<div class="page-break"></div>
+

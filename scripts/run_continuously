@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Simple script which runs MediGuest using a basic local server, restarting it if it fails
+#
+
+while true; do
+    python ./manage.py runserver
+    sleep 1s
+done
+

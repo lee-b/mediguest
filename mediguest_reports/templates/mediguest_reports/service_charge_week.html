@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+    <h1>Service Charge Control Sheets for {{ year }}</h1>
+    <h2>Select week number</h2>
+
+    <table>
+        <tr>
+            <th>Week No.</th>
+            <th>From</th>
+            <th>To</th>
+        </tr>
+    {% for weeknum, dates in weeks.items %}
+        {% ifchanged dates.start.month %}
+        <tr>
+            <th colspan="3">{{ dates.start|date:"b"|title }}</th>
+        </tr>
+        {% endifchanged %}
+        <tr>
+            <td>Week #{{ weeknum }}</td>
+            <td>{{ dates.start|date:"b d Y"|title }}</td>
+            <td>{{ dates.end|date:"b d Y"|title }}</td>
+            <td><a href="{% url service_charge_control_sheet year weeknum %}">PDF</a></td>
+            <td><a href="{% url service_charge_control_sheet_csv year weeknum %}">CSV</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
+

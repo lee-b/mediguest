@@ -1,0 +1,80 @@
+<div class="document">
+    <h2>Guest Agreement</h2>
+
+    <table>
+	    <tr>
+		    <th>Name of guest</th>
+		    <td colspan="2">{{ client }}</td>
+	    </tr>
+    </table>
+
+    <h3>First Admission</h3>
+
+    {% if client.first_admission_date %}
+        <table>
+            <tr>
+                <th>Date of First Admission</th>
+                <td>
+                    {{ client.first_admission_date|date:"Y/M/d" }}
+                </td>
+
+                <th>Staff member responsible for initial booking-in</th>
+                <td>
+                    {% if client.first_booked_in_by.first_name or client.first_booked_in_by.last_name %}
+                        {{ client.first_booked_in_by.first_name }}
+                        {{ client.first_booked_in_by.last_name }}
+                    {% else %}
+                        {{ client.first_booked_in_by.username }}
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    {% else %}
+        (none yet)
+    {% endif %}
+
+    <h3>Subsequent Admissions</h3>
+
+    <table class="admissions">
+        <tr>
+            <th>B.I.D.</th>
+            <th>Room</th>
+            <th>Sched. 3 Read</th>
+            <th>Sched. 4 Read</th>
+            <th>Total Payable</th>
+            <th>B.O.D.</th>
+        </tr>
+        {% for booking in client.subsequent_admissions %}
+            <tr>
+                <td>{{ booking.start_date|date:"Y/M/d" }}</td>
+                <td>{{ booking.room }}</td>
+                <td>{{ booking.sched_3_read|yesno:"Y,N," }}</td>
+                <td>{{ booking.sched_4_read|yesno:"Y,N," }}</td>
+                <td>&pound;{{ booking.total_payable|floatformat:2 }}{% ifequal booking.end_date Null %} (ongoing){% endifequal %}</td>
+                <td>{% if booking.end_date %}{{ booking.end_date|date:"Y/M/d" }}{% else %}(ongoing){% endif %}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="8" style="text-align: center">(none yet)</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Notes</h3>
+
+    <ul>
+        <li>Current daily service charges are:
+
+            <table>
+            	{% for r in room_types %}
+            		<tr>
+            			<th>{{ r.name }}</th>
+            			<td>&pound;{{ r.daily_rate|floatformat:2 }}</td>
+            		</tr>
+            	{% endfor %}
+            </table>
+        </li>
+
+        <li>Staff must ensure that Sections ... the <em>License Agreement</em> have been read to, and agreed by, the guest being booked in.</li>
+    </ul>
+</div>

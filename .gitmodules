@@ -1,0 +1,3 @@
+[submodule "third-party/easy_thumbnails"]
+	path = third-party/easy_thumbnails
+	url = git://github.com/SmileyChris/easy-thumbnails.git

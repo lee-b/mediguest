@@ -1,0 +1,214 @@
+.header, .footer {
+	font-size: 8pt;
+}
+
+.org_name {
+   font-decoration: italic;
+}
+
+body {
+    font-family: Garamond, "Hoefler Text", "Times New Roman", Times, serif;
+    font-size: 12pt;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    background: lightgray;
+    padding-top: 0.7em;
+    padding-bottom: 4px;
+    border: 1px solid black;
+}
+
+h2 {
+    margin-top: 0;
+    text-decoration: underline;
+}
+
+td.signature_box {
+	border-bottom: 1px solid black;
+}
+
+div.checkbox {
+	width: 1.5cm;
+	height: 1.5cm;
+	border: 1px solid black;
+}
+
+table.bordered,
+table.bordered th,
+table.bordered td {
+	border: 1px solid black;
+}
+
+th, td {
+    text-align: left;
+    padding: 2px;
+    vertical-align: top;
+}
+
+th.numeric,
+td.numeric {
+    text-align: right;
+}
+
+table {
+	width: 100%;
+}
+
+table th {
+	text-align: left;
+}
+
+h2.hidden {
+/*	color: white; */
+/*	display: none; */
+}
+
+.visiblecells th,
+.visiblecells td {
+	border: 1px solid black;
+}
+
+td.checkbox {
+	content: "X";
+}
+
+table.contact-methods {
+    min-width: 14em;
+}
+
+.contact-methods tr {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.contact-methods th {
+	text-align: left;
+	font-weight: normal;
+}
+
+table.to_address th,
+table.from_address th {
+	width: 4cm;
+}
+
+body.login {
+    width: 960px;
+}
+
+td.emergency-sheet-photo {
+    text-align: center;
+}
+
+h3.further-info {
+    margin-top: 4em;
+}
+
+table.report,
+table.validity-report {
+    min-width: 600px;
+    width: 100%;
+}
+
+table.validity-report .notes {
+    width: 50%;
+}
+
+table.validity-report .valid .result {
+    background: lightgreen;
+}
+
+table.validity-report .invalid .result {
+    background: lightred;
+}
+
+table.admissions {
+    border: 1px solid black;
+}
+
+.important {
+    font-weight: bold;
+}
+
+.postscript p {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+.letterhead {
+    margin-bottom: 0.5em;
+}
+
+.letter table th.table-title {
+    background-color: lightgray;
+}
+
+.letter h2 {
+    text-align: center;
+    width: 100%;
+    margin: 0.5em 0;
+}
+
+.letter .salutation {
+    margin-top: 2em;
+}
+
+.letter .sign-off {
+    margin-top: 2em;
+}
+
+.information-card table {
+    font-size: 10pt;
+}
+
+table.information-card > tr > th {
+    width: 50px;
+}
+
+tr.signature {
+	border-bottom: 1px solid black;
+}
+
+tr.signature th {
+	vertical-align: top;
+	text-align: left;
+}
+
+tr.signature-role th {
+	vertical-align: top;
+	text-align: center;
+	font-size: 9pt;
+}
+
+div.procedures {
+	font-size: 9pt;
+}
+
+table.procedures {
+	font-size: 10pt;
+}
+
+div.procedures li {
+	margin-top: 0;
+	margin-bottom: 2px;
+}
+
+.legalese {
+    font-size: 9pt;
+}
+
+th.number-col {
+    width: 20px;
+}
+
+th.completed {
+    width: 90px;
+}
+
+th.comments {
+    width: 250px;
+}
+

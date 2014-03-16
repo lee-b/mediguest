@@ -1,0 +1,78 @@
+{% load thumbnail %}
+<div class="document">
+
+<div style="font-size: 18pt; font-weight: bold">{{org_name}}/div>
+
+<h2>Emergency Information Sheet</h2>
+
+<p>Give this sheet to the vehicle medical crew, when a guest is taken from {{ org_name }}.</p>
+
+<table class="bordered">
+    <tr>
+        <th>Name</th>
+        <td>{{ client }}</td>
+{% if client.photo %}<td rowspan="7" class="emergency-sheet-photo">
+            <img
+                class="emergency-sheet-photo"
+                title="Emergency Sheet Photo"
+                src="{% thumbnail client.photo 200x200 %}"
+                alt=""
+            />
+        </td>
+{% endif %}
+    </tr>
+    <tr><th>Date of Birth</th>      <td>{{ client.date_of_birth|date:"Y/M/d" }}</td></tr>
+
+    <tr><th>G.P. Name</th>          <td>{{ client.gp }}</td></tr>
+    <tr><th>G.P. Address</th>       <td>{{ client.gp.address.address_inline }}</td></tr>
+    <tr><th>G.P. Telephone</th>     <td>{{ client.gp.phone }}</td></tr>
+    <tr><th>G.P. Mobile</th>        <td>{{ client.gp.mobile }}</td></tr>
+
+    <tr>
+        <th>
+            Religion<br>
+            <span class="legalese">(for contact in emergencies)</span>
+        </th>
+        <td>{{ client.religion }}</td>
+    </tr>
+</table>
+
+
+<h3>Current Medication(s)</h3>
+
+<table class="bordered">
+    <tr>
+        <th>Medication</th>
+        <th>Dosage</th>
+        <th>How often</th>
+        <th>What for</th>
+        <th>Time using</th>
+    </tr>
+
+    {% for med in client.current_medications %}
+        <tr>
+            <td>{{ med.drug.name }}</td>
+            <td>{{ med.dose }} {{ med.drug.units }}</td>
+            <td>{{ med.frequency }}</td>
+            <td>{{ med.purpose }}</td>
+            <td>{{ med.using_time_as_str }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+<h3>Medical problems</h3>
+
+{{ client.medical_problems }}
+
+
+<h3>Mobility problems</h3>
+
+{{ client.mobility_problems }}
+
+
+<h3 class="further-info">For further information contact:</h3>
+
+<p>{{ org_name }}, {{ org_address_inline }}, {{ org_phone }}</p>
+
+</div>

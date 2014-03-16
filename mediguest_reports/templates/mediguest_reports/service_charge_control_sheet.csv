@@ -1,0 +1,12 @@
+"Service Charge Control Sheet"
+"{{ year }}, Week {{ week_num }}: {{ start|date:"b d"|title }} -- {{ end|date:"b d"|title }}"
+
+"Date", "Room No.", "Name of Guest", "Paid in", "Refund", "Receipt No(s).", "Balance", "Comments"
+
+{% for sc in service_charges %}
+{% spaceless %}
+"{{ sc.date_charged|date:"Y/b/d"|title }}","{{ sc.client.latest_booking.room }}","{{ sc.client }}",{% if sc.amount_paid > 0.0 %}{{ sc.amount_paid|floatformat:2 }}{% else %}0.00{% endif %},{% if sc.amount_paid < 0.00 %}{{ sc.amount_paid }}{% else %}0.00{% endif %},"{% for payment in sc.payments.all %}    {% if not forloop.first %},{% endif %}    {{ payment.id }}{% endfor %}",{{ sc.amount_outstanding|floatformat:2 }},"{{ sc.comments }}"{% endspaceless %}
+{% empty %}
+"(no service charges recorded for this week)"
+{% endfor %}
+

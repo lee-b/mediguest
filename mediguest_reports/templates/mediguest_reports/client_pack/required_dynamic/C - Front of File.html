@@ -1,0 +1,58 @@
+<div class="document">
+
+<h2>Front of File Details</h2>
+
+<table class="bordered">
+    <tr>
+        <th>Guest Name</th>
+        <td>{{ client }}</td>
+    </tr>
+    <tr>
+        <th>Date of Birth</th>
+        <td>{{ client.date_of_birth|date:"Y/M/d" }}</td>
+    </tr>
+    <tr>
+        <th>NI Number</th>
+        <td>{{ client.national_insurance_no }}</td>
+    </tr>
+    <tr>
+        <th>Booking-in Date</th>
+        <td>
+            {% if client.room %}
+                {{ client.booking_set.latest.start_date|date:"Y/M/d" }}
+            {% else %}
+                (no room yet)
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <th>Keyworker</th>
+        <td>{{ client.keyworker }}</td>
+    </tr>
+    <tr>
+        <th>Booking-out Date</th>
+        <td>
+            {% if client.room %}
+                {{ client.room.end_date }}
+            {% else %}
+                n/a
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <th>Reason for leaving</th>
+        <td>
+            {% if client.room %}
+                {{ client.room.reason_for_leaving }}
+            {% else %}
+                n/a
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <th>Service Charge Arrears</th>
+        <td>&pound;{{ client.service_charge_arrears|floatformat:2 }}</td>
+    </tr>
+</table>
+
+</div>
