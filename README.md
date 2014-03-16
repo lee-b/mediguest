@@ -54,19 +54,6 @@ This is a a web-based management tool for medical / social support facilities.
 
 ## Installation
 
-### Windows
-
-Extract files to c:\mediguest
-
-  * INSTALL python 2.7 win32
-  * INSTALL pip from http://pypi.python.org/pypi/pip#downloads
-  * pip install django
-  * psycopg2 from http://www.stickpeople.com/projects/python/win-psycopg/psycopg2-2.4.2.win32-py2.7-pg9.0.4-release.exe
-  * postgresql from http://www.postgresql.org/download/windows
-  * pil from http://effbot.org/downloads/PIL-1.1.7.win32-py2.7.exe
-  * reportlab from http://www.reportlab.com/ftp/reportlab-2.5.win32-py2.7.exe
-
-
 ### Debian Linux
 
 Install dev stuff to build python modules:
@@ -83,7 +70,23 @@ Install python modules:
     apt-get install postgresql-server
 
 
-### ALL
+### Windows
+
+NOTE: Windows is NOT supported, but this may help get you started!
+
+Extract files to c:\mediguest
+
+  * INSTALL python 2.7 win32
+  * INSTALL pip from http://pypi.python.org/pypi/pip#downloads
+  * pip install django
+  * psycopg2 from http://www.stickpeople.com/projects/python/win-psycopg/psycopg2-2.4.2.win32-py2.7-pg9.0.4-release.exe
+  * postgresql from http://www.postgresql.org/download/windows
+  * pil from http://effbot.org/downloads/PIL-1.1.7.win32-py2.7.exe
+  * reportlab from http://www.reportlab.com/ftp/reportlab-2.5.win32-py2.7.exe
+  * Run scripts/fix_windows.bat from the main directory
+
+
+### All
 
     pip install django django_extensions south pil django-debug-toolbar html5lib
 
@@ -95,28 +98,41 @@ Configure the project:
     $EDITOR local_settings.py
 
 
-
-
-### Windows clients (staff terminals which will access the server)
-
-Install Adobe Reader X Full version from ftp://ftp.adobe.com/pub/adobe/reader/win/10.x/10.0.0/en_US/AdbeRdr1000_en_US.exe
-
-
-WINDOWS (ONLY)
-
-  * Run scripts/fix_windows.bat from the main directory
-  * Install prism from http://prism.mozillalabs.com/downloads/1.0b4/prism-1.0b4.en-US.win32.zip
-
-## NON-WINDOWS:
-
 Build static file links:
 
     ./manage.py collectstatic -l
 
-## ALL
 
 Sync the DB:
 
     ./manage.py syncdb
     ./manage.py migrate
+
+
+
+
+
+### Windows clients (staff terminals which will access the server)
+
+You simply need a modern, standards-compliant web browser, a PDF reader, and access to a printer.
+
+Install:
+
+  * Adobe Reader X Full version, from ftp://ftp.adobe.com/pub/adobe/reader/win/10.x/10.0.0/en_US/AdbeRdr1000_en_US.exe
+  * OR Foxit Reader
+  * OR any PDF viewer of your choice
+
+  * Optionally, set up the browser so the website feels like a standard desktop application:
+
+    * Install prism from http://prism.mozillalabs.com/downloads/1.0b4/prism-1.0b4.en-US.win32.zip
+    * OR, use Chrome to create an application link on your desktop
+
+
+
+
+## Help, contributions, etc.
+
+  * For help, contact lee_b on github.
+
+  * For contributions, just fork the code on github, create your contributions, and submit a pull request.  Please be sure to describe the changes fully, though, and make sure your code is readable.
 
